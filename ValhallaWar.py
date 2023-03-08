@@ -37,7 +37,7 @@ class Shapes(ABC):
 class Base(Shapes):
     # lets get the base name and shape and lengths of the sides of the base dynamically 
     # so that it may be changed later like triangle / hexagon
-    def __init__(self, base_name, shape_of_the_base = "Square", lengths_of_the_sides = [0, 0, 0, 0]):
+    def __init__(self, base_name, shape_of_the_base = "square", lengths_of_the_sides = [0, 0, 0, 0]):
         # lets declare it as a private variable 
         # so that no other bases will not know about the wall hights and other info
         self.__base_name = base_name
@@ -155,6 +155,7 @@ if __name__ == '__main__':
             atk_dir=0
             attack=[]
             
+            # getting input based on a shape
             if(base.get_shape_of_the_base().lower()=="square"):
                 directions={
                     'n':0,
@@ -178,7 +179,7 @@ if __name__ == '__main__':
             # attacking
             attack = Attack(base, attacker_name, wepon_name, strength ,atk_dir)
             attack.attack(base, attack)
-        print(attacklogs)
+        # print(attacklogs)
         
         for x in attacklogs:
             base.recover(x[0], x[1])
