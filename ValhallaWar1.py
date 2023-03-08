@@ -77,10 +77,9 @@ class Base(Shapes):
         attacked_strength = attack.strength
         if(self.get_lengths_of_the_sides()[attacked_direction]<attacked_strength):
             self.res+=1
-            # Communicate("Attack successfull", 1)
+            Communicate("Attack successfull", 1)
         else:
-            pass
-            # Communicate("Wall is high", 0)
+            Communicate("Wall is high", 0)
     
     def recover(self, attacked_direction, attacked_strength):
         recovering_wall = self.get_lengths_of_the_sides()
@@ -143,8 +142,7 @@ if __name__ == '__main__':
     flag=True
     while(flag):
         # getting the shape of the base
-        # setted for square in future we can add many shapes we need
-        base_shape = input("Enter your base shape (eg: Square): ")
+        base_shape = input("Enter your base shape (eg: Square / Rectange / Triangle): ")
         if(base_shape.lower()=="square" or base_shape.lower()=="rectangle"):
             base = Base(base_name, base_shape)
             flag=False
@@ -184,11 +182,10 @@ if __name__ == '__main__':
                 'W':3,
             }
             atk_dir = directions[direction]
-            # print(attacker_name, direction, wepon_name, strength)
+            print(attacker_name, direction, wepon_name, strength)
             attack = Attack(base, attacker_name, wepon_name, strength ,atk_dir)
             attack.attack(base, attack)
             attacklog.append([atk_dir, strength])
         for x in attacklog:
             base.recover(x[0], x[1])
-    print("\n\n")
     print(base.res)
