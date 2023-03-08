@@ -138,7 +138,7 @@ if __name__ == '__main__':
     
     # attacking day by day
     attack_number = 1
-    attacks_log = []
+    logs=[]
     choice = 1
     while(choice):
         print(f"Day {attack_number}")
